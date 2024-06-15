@@ -2,7 +2,7 @@
 
 import { k } from "./kaboomCtx";
 import { setCamScale, displayDialogue } from "./utils";
-import { dialogueData, scaleFactor } from "./constants";
+import { dialogueData, scaleFactor, characterSpeed } from "./constants";
 
 //player map & position
 k.loadSprite("spritesheet", "./player.webp", {
@@ -24,6 +24,29 @@ k.loadSprite("map", "./map.webp");
 //background color
 k.setBackground(k.Color.fromHex("#000"));
 
-k.scene("main", () => {});
+k.scene("main", async() => {
+     //map data (spawnpoints, boundaries, etc.)
+  const mapData = await (await fetch("./portfolio_map.json")).json();
+  const layers = mapData.layers;
+
+  const map = k.add([k.sprite("map"), k.pos(0), k.scale(scaleFactor)]);
+
+  const player = k.make([
+    k.sprite("spritesheet", { anim: "idle-down" }),
+    k.area({
+      shape: new k.Rect(k.vec2(0, 3), 10, 10),
+    }),
+    k.body(),
+    k.anchor("center"),
+    k.pos(),
+    k.scale(scaleFactor*2),
+    {
+      speed: characterSpeed,
+      direction: "down",
+      isInDialogue: false,
+    },
+    "player",
+  ]);
+});
 
 k.go("main");
