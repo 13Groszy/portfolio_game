@@ -1,6 +1,12 @@
 body {
-  font-size: 2rem;
+  font-size: 1.2rem;
   overflow: hidden;
+}
+@media screen and (max-width: 768px) {
+  body {
+    font-size: 0.825rem;
+  }
+  
 }
 #app {
   width: 100%;
@@ -8,39 +14,45 @@ body {
   position: relative;
 }
 .textbox {
-  position: absolute;
-  left: 10%;
-  right: 10%;
-  bottom: 2vh;
-  min-height: 10vh;
-  background: white;
-  border-radius: 3px;
-  outline-style: solid;
-  padding: 1rem;
+  position: fixed;
+  width: 100%;
+  margin-inline: auto;
+  max-width: 500px;
+  bottom: 10%;
+  height: auto;
+  background: url('/message_bg.webp') no-repeat;
+  background-size: cover;
+  border: 1px solid gold;
+  filter: blur(0.5px);
+  border-radius: 8px;
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: flex-start;
-  word-spacing: 0.2rem;
-  filter: drop-shadow(0 0 0.75rem rgb(112, 112, 112));
 }
 .textbox-container{
     display: none;
+    justify-content: center;
 }
 .ui-text {
   margin: 0;
+  padding-inline: 2rem;
+  padding-block: 1rem;
   user-select: none;
+  color: gold;
 }
 .ui-close-btn {
   border-style: none;
   border-radius: 3px;
-  padding: 1rem;
+  width: 67px;
+  height: 34px;
   font-size: inherit;
+  background: url('/message_btn.webp') no-repeat;
+}
+.ui-close-btn:hover {
+  opacity: 0.9;
 }
 .btn-container {
-  align-self: flex-end;
-  margin-top: 1rem;
+  align-self: center;
+  padding-block: 1rem;
 }
 .note {
   position: absolute;

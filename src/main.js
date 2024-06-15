@@ -22,7 +22,7 @@ k.loadSprite("spritesheet", "./player.webp", {
 k.loadSprite("map", "./map.webp");
 
 //background color
-k.setBackground(k.Color.fromHex("#000"));
+k.setBackground(k.Color.fromHex("#000000"));
 
 k.scene("main", async() => {
      //map data (spawnpoints, boundaries, etc.)

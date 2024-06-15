@@ -11,8 +11,9 @@ export function displayDialogue(text, onDisplayEnd) {
     // render dialogue text
     const dialogueUI = document.querySelector(".textbox-container");
     const dialogue = document.querySelector(".dialogue");
+    const canvas = document.querySelector("canvas#game");
 
-    dialogueUI.style.display = "block";
+    dialogueUI.style.display = "flex";
     let index = 0;
     let currentText = "";
     const intervalRef = setInterval(() => {
@@ -31,9 +32,10 @@ export function displayDialogue(text, onDisplayEnd) {
       dialogue.innerHTML = "";
       clearInterval(intervalRef);
       closeBtn.removeEventListener("click", onCloseBtnClick);
+      canvas.focus();
     }
 
-    const closeBtn = document.querySelector("ui-close-btn");
+    const closeBtn = document.querySelector(".ui-close-btn");
 
     closeBtn.addEventListener("click", onCloseBtnClick);
 
