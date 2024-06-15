@@ -1,8 +1,23 @@
 export default scaleFactor = 1;
 
 export const dialogueData = {
-    library: ``,
+    crystaldragon: ``,
+    sharpshooter: ``,
+    labirynth: ``,
+    fort: ``,
+    crystalmine: ``,
+    minotaur: ``,
+    brewery: ``,
+    reddragon: ``,
     castle: ``,
-    dragon: ``,
-    sharpshooters: ``,
+    university: ``,
+    golddragon: ``,
+    centaur: ``,
+    caffee: ``,
+    magetower: ``,
+    manticores: ``,
+    forge: ``,
+    leprechaun: ``,
+    sulfur: ``,
+    medusa: ``,
 }
