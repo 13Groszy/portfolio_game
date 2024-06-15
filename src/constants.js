@@ -1,4 +1,4 @@
-export default scaleFactor = 1;
+export const scaleFactor = 1;
 
 export const dialogueData = {
     crystaldragon: ``,
