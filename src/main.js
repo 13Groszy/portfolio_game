@@ -2,7 +2,7 @@
 
 import { k } from "./kaboomCtx";
 import { setCamScale, displayDialogue } from "./utils";
-import { dialogueData, scaleFactor, characterSpeed } from "./constants";
+import { dialogueData, scaleFactor, characterSpeed, resources } from "./constants";
 
 //player map & position
 k.loadSprite("spritesheet", "./player.webp", {
@@ -59,14 +59,18 @@ k.scene("main", async() => {
           k.pos(boundary.x, boundary.y),
           boundary.name,
         ]);
-
         if (boundary.name) {
           player.onCollide(boundary.name, () => {
-            player.isInDialogue = true;
+            addResources(boundary.name);
+            if(boundary.name === "castle"){
+                // check if have resources to see hidden message
+            }else{
+              player.isInDialogue = true;
             displayDialogue(
               dialogueData[boundary.name],
               () => (player.isInDialogue = false)
             );
+            }
           });
         }
       }
@@ -87,7 +91,59 @@ k.scene("main", async() => {
       }
     }
   }
-
+  function addResources(boundary){
+    console.log(resources)
+    console.log(boundary)
+    switch(boundary) {
+      case "crystaldragon":
+          resources.crystals += 1;
+          break;
+      case "crystalmine":
+          resources.crystals += 3;
+          break;
+      case "centaur":
+      case "magetower":
+          resources.crystals += 2;
+          break;
+      case "sharpshooter":
+      case "golddragon":
+          resources.gold += 3;
+          break;
+      case "fort":
+      case "forge":
+          resources.shields += 2;
+          break;
+      case "minotaur":
+      case "manticores":
+          resources.strength += 2;
+          break;
+      case "leprechaun":
+          resources.luck += 5;
+          break;
+      case "university":
+          resources.strength += 2;
+          break;
+      case "caffee":
+          player.speed = characterSpeed + 30;
+          break;
+      case "labirynth":
+      case "medusa":
+        player.speed = characterSpeed - 20;
+        break;
+      case "sulfur":
+          resources.strength += 2;
+          break;
+      case "brewery":
+          resources.luck += 2;
+          break;
+      case "reddragon":
+          resources.shields = 0;
+          break;
+      default:
+          console.log("Invalid boundary");
+          break;
+  }
+  };
   setCamScale(k);
 
   k.onResize(() => {
