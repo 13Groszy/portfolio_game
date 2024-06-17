@@ -66,10 +66,10 @@ k.scene("main", async() => {
                 // check if have resources to see hidden message
             }else{
               player.isInDialogue = true;
-            displayDialogue(
-              dialogueData[boundary.name],
-              () => (player.isInDialogue = false)
-            );
+              displayDialogue(
+                dialogueData[boundary.name],
+                () => (player.isInDialogue = false)
+              );
             }
           });
         }
@@ -92,8 +92,6 @@ k.scene("main", async() => {
     }
   }
   function addResources(boundary){
-    console.log(resources)
-    console.log(boundary)
     switch(boundary) {
       case "crystaldragon":
           resources.crystals += 1;
@@ -143,9 +141,22 @@ k.scene("main", async() => {
           console.log("Invalid boundary");
           break;
   }
+  displayResources();
   };
-  setCamScale(k);
+  function displayResources(){
+    const resourcesUI = document.querySelector(".resources");
 
+    resourcesUI.innerHTML = `
+      <p>Crystals: <span>${resources.crystals}</span></p>
+      <p>Gold: <span>${resources.gold}</span></p>
+      <p>Shields: <span>${resources.shields}</span></p>
+      <p>Strength: <span>${resources.strength}</span></p>
+      <p>Luck: <span>${resources.luck}</span></p>
+      <p>Speed: <span>${characterSpeed}</span></p>
+    `;
+  }
+  setCamScale(k);
+  displayResources();
   k.onResize(() => {
     setCamScale(k);
   });

@@ -1,12 +1,12 @@
-export const scaleFactor = 1;
+export const scaleFactor = 1.25;
 export const resources ={
-    gold: 0,
-    crystals: 0,
-    shields: 0,
-    strength: 0,
-    luck: 0,
+    gold: 3,
+    crystals: 1,
+    shields: 4,
+    strength: 7,
+    luck: 2,
 };
-export let characterSpeed = 120;
+export let characterSpeed = 150;
 export const dialogueData = {
     crystaldragon: `You meet the Crystal Dragon and gain +1 crystal. The Crystal Dragon represents my attention to detail in creating beautiful websites.`,
     sharpshooter: `You meet the Sharpshooter and gain +3 gold. The Sharpshooter stands for my precision with CSS, TypeScript and Liquid.`,
