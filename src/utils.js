@@ -44,4 +44,4 @@ export function displayDialogue(text, onDisplayEnd) {
         onCloseBtnClick();
       }
     });
-  }
+}

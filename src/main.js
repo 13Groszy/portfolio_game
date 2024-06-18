@@ -43,7 +43,7 @@ k.scene("main", async() => {
     {
       speed: characterSpeed,
       direction: "down",
-      isInDialogue: false,
+      isInDialogue: true,
     },
     "player",
   ]);
@@ -63,7 +63,18 @@ k.scene("main", async() => {
           player.onCollide(boundary.name, () => {
             addResources(boundary.name);
             if(boundary.name === "castle"){
-                // check if have resources to see hidden message
+                if(resources.crystals >=3 && resources.gold >=5){
+                    displayDialogue(
+                        `You have collected all the resources!  <a target='_blank' href="https://www.linkedin.com/in/mateusz-daszkiewicz-66371a196/">Tell me about it</a> using secret words 'Robots are cool'.`,
+                        () => (player.isInDialogue = false)
+                    );
+
+                }else{
+                    displayDialogue(
+                        `You need to collect more resources to see the hidden message.`,
+                        () => (player.isInDialogue = false)
+                    );
+                }
             }else{
               player.isInDialogue = true;
               displayDialogue(
@@ -94,16 +105,13 @@ k.scene("main", async() => {
   function addResources(boundary){
     switch(boundary) {
       case "crystaldragon":
-          resources.crystals += 1;
+          resources.crystals += 2;
           break;
       case "crystalmine":
           resources.crystals += 3;
           break;
-      case "centaur":
-      case "magetower":
-          resources.crystals += 2;
-          break;
       case "sharpshooter":
+      case "magetower":
       case "golddragon":
           resources.gold += 3;
           break;
@@ -146,17 +154,28 @@ k.scene("main", async() => {
   function displayResources(){
     const resourcesUI = document.querySelector(".resources");
 
+    function getClass(resource, threshold) {
+      return resource >= threshold ? 'green' : 'red';
+    }
+
     resourcesUI.innerHTML = `
-      <p>Crystals: <span>${resources.crystals}</span></p>
-      <p>Gold: <span>${resources.gold}</span></p>
-      <p>Shields: <span>${resources.shields}</span></p>
+      <p>Crystals: <span class="${getClass(resources.crystals, 3)}">${resources.crystals}</span></p>
+      <p>Gold: <span class="${getClass(resources.gold, 5)}">${resources.gold}</span></p>
+      <p>Shields: <span class="${resources.shields >= 4 ? 'gold' : 'red'}">${resources.shields}</span></p>
       <p>Strength: <span>${resources.strength}</span></p>
       <p>Luck: <span>${resources.luck}</span></p>
-      <p>Speed: <span>${characterSpeed}</span></p>
+      <p>Speed: <span class="${player.speed >= 150 ? 'gold' : 'red'}">${player.speed}</span></p>
     `;
   }
+
   setCamScale(k);
+
   displayResources();
+  displayDialogue(
+    `Welcome to my portfolio! Use the arrow keys or click to move around. Interact with the objects to learn more about me.`,
+    () => (player.isInDialogue = false)
+  );
+
   k.onResize(() => {
     setCamScale(k);
   });
@@ -223,7 +242,6 @@ k.scene("main", async() => {
 
     player.play("idle-side");
   }
-
   k.onMouseRelease(stopAnims);
 
   k.onKeyRelease(() => {

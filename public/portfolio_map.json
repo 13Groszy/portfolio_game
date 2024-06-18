@@ -1674,18 +1674,7 @@
                  "width":62.5,
                  "x":1225,
                  "y":320
-                }, 
-                {
-                 "height":42.5,
-                 "id":170,
-                 "name":"centaur",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":52,
-                 "x":1235.5,
-                 "y":427.5
-                }, 
+                },
                 {
                  "height":42.5,
                  "id":171,
@@ -1915,19 +1904,8 @@
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":408,
-                 "y":921.5
-                }, 
-                {
-                 "height":1.33333333333337,
-                 "id":2,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":-45.3333333333333,
-                 "y":805.333333333333
+                 "x":850,
+                 "y":441
                 }],
          "opacity":1,
          "type":"objectgroup",

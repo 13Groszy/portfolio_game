@@ -1,4 +1,4 @@
-export const scaleFactor = 1.25;
+export const scaleFactor = 1.2;
 export const resources ={
     gold: 3,
     crystals: 1,
@@ -8,7 +8,7 @@ export const resources ={
 };
 export let characterSpeed = 150;
 export const dialogueData = {
-    crystaldragon: `You meet the Crystal Dragon and gain +1 crystal. The Crystal Dragon represents my attention to detail in creating beautiful websites.`,
+    crystaldragon: `You meet the Crystal Dragon and gain +2 crystal. The Crystal Dragon represents my attention to detail in creating beautiful websites.`,
     sharpshooter: `You meet the Sharpshooter and gain +3 gold. The Sharpshooter stands for my precision with CSS, TypeScript and Liquid.`,
     labirynth: `You navigate the Labyrinth and your character slow down. The Labyrinth shows my problem-solving skills in debugging and fixing issues.`,
     fort: `You visit the Fort and gain +2 shields. The Fort symbolizes my persistence in tackling tough web development challenges.`,
@@ -19,9 +19,8 @@ export const dialogueData = {
     castle: `You enter the Castle with your resources. Collect some more, to see hidden message!`,
     university: `You study at the University of Upgrades and gain +2 strength. The University of Upgrades is where I keep learning new skills.`,
     golddragon: `You meet the Gold Dragon and gain +3 gold. The Gold Dragon guards my experience in making interactive digital experiences.`,
-    centaur: `You meet the Centaur and gain +2 crystal. The Centaur stands for my ability to work well in teams and communicate effectively.`,
     caffee: `You relax at the Caffee of Creativity and gain character movement speed. The Caffee of Creativity is where I take breaks to come up with new ideas.`,
-    magetower: `You climb the Mage Tower and gain +2 crystals. The Mage Tower represents my skill with React, TailwindCSS, and Liquid.`,
+    magetower: `You climb the Mage Tower and gain +3 gold. The Mage Tower represents my skill with React, TailwindCSS, and Liquid.`,
     manticores: `You face the Manticores, after tough battle you gain +2 strength. The Manticores show my ability to handle multiple projects at once.`,
     forge: `You visit the Forge and gain +2 shields. The Forge is where I create intuitive and responsive user interfaces.`,
     leprechaun: `You meet the Leprechaun and gain +5 luck charms. The Leprechaun brings good luck to my projects, ensuring successful launches.`,
